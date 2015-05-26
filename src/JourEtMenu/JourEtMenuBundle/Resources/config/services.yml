@@ -1,0 +1,9 @@
+services:
+#    jour_et_menu.example:
+#        class: JourEtMenu\JourEtMenuBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    redirectionListener:
+          class: JourEtMenu\JourEtMenuBundle\Listener\RedirectListener
+          arguments: [@service_container]
+          tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

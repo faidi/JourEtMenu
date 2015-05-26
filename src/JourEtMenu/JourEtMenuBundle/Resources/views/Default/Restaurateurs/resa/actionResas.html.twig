@@ -1,0 +1,17 @@
+{% extends 'base2.html.twig' %} {% block body %}
+<div class="container">
+
+{% if status.id == '1'  %}
+<h2> Réservation Confirmée!!!</h2>
+
+
+{% elseif  status.id == '2' %}
+<h2> Réservation Annulée!!!</h2>
+ 
+
+{% elseif  status.id == '4' %}
+
+<h2> Réservé don't show <h2><br><h2>demande prise en compte!!!</h2>
+{% endif %}
+
+<a href="{{ path('mesResas_restaurateurs') }}">Retour</a></div>{% endblock %}

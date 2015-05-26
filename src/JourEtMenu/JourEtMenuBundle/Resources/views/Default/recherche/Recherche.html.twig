@@ -1,0 +1,30 @@
+ 
+<form class=" form-inline "  action="{{path('recherche') }}" method="POST" >
+  
+     
+        <div id="custom-search-input "  class="form-group  "  >
+            <div class="input-group ">
+                {{ form_widget(form.ou,{ 'attr': {'class': 'input-lg','placeholder':'Ou? ' } }) }}
+                <span class="input-group-btn">
+                    <button  class="btn btn-lg btn-default radio    " ><span class="icon icon-location-arrow"> </span></button>
+                </span>
+            </div>
+
+
+        </div>
+
+        <div id="custom-search-input " class="form-group"  >
+            <div class="input-group  ">
+                {{ form_widget(form.quoi, { 'attr': {'class': 'input-lg','placeholder':'Un plats du jour , Un menus un Ingrédient,une spécialité,...) ,  )'} }) }}
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-lg btn-default radio " ><span class="icon  icon-search"> </span></button>
+                </span>
+            </div>
+
+        </div>
+     
+    {{ form_widget(form) }}
+
+
+</form>
+

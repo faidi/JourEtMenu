@@ -1,0 +1,13 @@
+{% extends 'base2.html.twig' %} {% block body %}
+
+
+
+ 
+
+<form action="{{path ('Menuscreation')}}" method="POST" {{ form_enctype(form) }} >
+
+
+  {{ form(form) }}
+
+</form>
+{% endblock %}

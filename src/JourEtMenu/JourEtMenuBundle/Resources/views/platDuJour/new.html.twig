@@ -1,0 +1,15 @@
+{% extends '::base2.html.twig' %}
+
+{% block body -%}
+    <h1>platDuJour creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('restaurant_platsdujour') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% if resultats|length != 0 %}
+<!-- Popover #1 -->
+<a class="btn btn-primary" data-placement="top" data-popover-content="#a1" data-toggle="popover" data-trigger="focus" href="#" tabindex="0">Popover Example</a>
+
+<!-- Content for Popover #1 -->
+<div class="hidden" id="a1">
+<div class="popover-heading">
+    This is the heading for #1
+</div>
+
+<div class="popover-body">
+    This is the body for #1
+</div>
+</div>
+{% for resultat in resultats %}
+					
+				  
+					<div class="row">
+						<div class="col-sm-6">
+							<br>
+							<div >
+								<div class="media" >
+									<a class="pull-left" href="{{ path('showRestaurant',{'id':resultat.restaurant.id}) }}" target="_parent"> <img
+										alt="image" class="img-Polaroid"
+										src=" {%set a=resultat.restaurant.images|last  %} {{ asset(a.AssetPath)}} "
+										width="100" height="100"></a>
+
+
+									<div class="media-body fnt-smaller">
+
+
+										<h3 class="media-heading">
+											 {{ resultat.nom }}
+												<h3 class="pull-right">{{ resultat.prix }} €</h3>
+											 
+										</h3>
+
+
+										<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+											<li>2 <span class="icon icon-time"></span>min
+											</li>
+
+											<li style="list-style: none"></li>
+
+											<li>5 <i class="icon icon-star icon-warning"
+												style="color: orange;"></i></li>
+
+											<li style="list-style: none"></li>
+
+											<li>5 <i class="icon icon-heart icon-warning"
+												style="color: pink;"></i></li>
+										</ul>
+
+										<p>
+											Chez : <a
+												href="{{ path('showRestaurant',{'id':resultat.restaurant.id}) }}"
+												class="btn btn-infos"><span>{{ resultat.restaurant.nom }}</span></a>
+										</p>
+
+										<p style="color: gray;" class="hidden-xs">{{resultat.description}}
+											...</p>
+
+									</div>
+								</div>
+							</div>
+							<div class=" "><small>
+								<span class="icon icon-glass"></span>+ <span
+									class="label label-primary">Entrée</span> <span
+									class="label label-warning">Plat</span> <span
+									class="label label-success">Dessert</span> +<span
+									class="icon icon-glass "></span>
+</small>
+
+								<ul class="list-inline mrg-0 btm-mrg-10 clr-535353 pull-right">
+
+
+									<li><a class="btn btn-success"
+										href="{{ path('reserver',{'menu':resultat.id}) }} ">Réserver</a>
+									</li>
+
+
+
+
+
+								</ul>
+
+							</div>
+							<!-- End Listing-->
+							<hr>
+						</div>
+						<!-- End Col -->
+					</div>						
+					<!-- End row -->
+
+					{% endfor %}
+
+{% else %}
+Aucun résultat
+{% endif %}
+

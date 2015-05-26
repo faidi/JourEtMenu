@@ -1,0 +1,27 @@
+
+body {
+   
+	padding-bottom: 0px;
+    padding-top:  0px;
+    margin-right:  0px ;
+  margin-left:    0px ;
+ 
+ 
+  
+   
+    
+}
+html {
+    zoom: 0.0; /* Old IE only */
+    -moz-transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+     transform: scale(1.0);
+}
+ 
+ 
+::-webkit-input-placeholder { font-style:italic;  font-size:  11px;}
+::-moz-placeholder { font-style:italic;  font-size:  11px;} /* firefox 19+ */
+:-ms-input-placeholder { font-style:italic; font-size:  11px; } /* ie */
+input:-moz-placeholder { font-style:italic;  font-size:  11px;}
+
+

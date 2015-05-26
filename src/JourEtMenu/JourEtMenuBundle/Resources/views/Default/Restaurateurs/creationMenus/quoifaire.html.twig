@@ -1,0 +1,69 @@
+{% extends 'base2.html.twig' %} {% block body %}
+
+<h1> Creation du menu</h1>
+<div class="   col-md-8"  
+		style="background-color: gray;border-radius:20px; border-color: #81553B; border-width: 5px; border-style: solid; text-align:center;    ">
+		
+<div>
+<h2 style="color: silver;">Apéritif</h2>
+
+<hr><a href="{{path ('APcreation')}}"> </a>
+{% for apero in app.session.get('aperos')  %}
+<h6 style="color: silver;font-size:large;font-style:italic; "> {{  apero.nom}}</h6>
+ <br>
+ 
+ {% endfor %}<br>
+ 
+{%  render(controller('JourEtMenuBundle:Menus:creeAperitif')) %}
+</div>
+<div>
+<h2 style="color: silver;">Entrees</h2>
+
+<hr><a href="{{path ('Encreation')}}">  </a>
+
+
+ {% for apero in app.session.get('Entrees')  %}
+ <h6 style="color: silver;font-size:large;font-style:italic; ">{{  apero.nom}}</h6><br>
+ 
+ 
+ {% endfor %}<br>
+{%  render(controller('JourEtMenuBundle:Menus:creeEntree')) %}
+</div>
+<div>
+<h2 style="color: silver;">Plats</h2>
+<hr><a href="{{path ('Plcreation')}}">  </a>
+{% for apero in app.session.get('plats')  %}
+ <h6 style="color: silver;font-size:large;font-style:italic; ">{{  apero.nom}}</h6> 
+ <br>
+ 
+ {% endfor %}<br>
+ {%  render(controller('JourEtMenuBundle:Menus:creePlat')) %}
+ 
+</div>
+<div>
+<h2 style="color: silver;">Desserts</h2>
+<hr><a href="{{path ('Descreation')}}">  </a>
+{% for apero in app.session.get('desserts')  %}
+ <h6 style="color: silver;font-size:large;font-style:italic; ">{{  apero.nom}}</h6>
+ <br>
+ 
+ {% endfor %}<br>
+ {%  render(controller('JourEtMenuBundle:Menus:creeDessert')) %}
+</div>
+<div>
+<h2 style="color: silver;">Digestifs</h2>
+<hr><a href="{{path ('Digcreation')}}">  </a>
+{% for apero in app.session.get('digestifs')  %}
+ <h6 style="color: silver;font-size:large;font-style:italic; ">{{  apero.nom}}</h6>
+ <br>
+ 
+ {% endfor %}<br>
+ {%  render(controller('JourEtMenuBundle:Menus:creeDigestif')) %}
+</div>
+<a href="{{path ('Menuscreation')}}" class="btn btn-success btn-lg"><span class="icon  icon-edit ">Creer le menu</a>
+</div>
+ 
+  
+ 
+ </div>
+ {% endblock %}

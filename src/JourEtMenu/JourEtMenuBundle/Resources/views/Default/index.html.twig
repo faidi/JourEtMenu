@@ -1,0 +1,13 @@
+{% extends '::base2.html.twig' %}
+
+
+{% block body %}
+ookokoko
+kokokokok
+{% for menu in menus %}
+
+<h4>{{ menu.nom }}</h4>
+<a href="{{ path('reserver',{'menu' : menu.id}) }}">reserver</a>
+
+{% endfor %}
+{% endblock %}

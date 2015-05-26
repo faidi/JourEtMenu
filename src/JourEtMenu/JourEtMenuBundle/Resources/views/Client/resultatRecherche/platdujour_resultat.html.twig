@@ -1,0 +1,86 @@
+{% if plats|length != 0 %} {% for res in plats %}
+
+<div class="row">
+	<div class="col-sm-6">
+		<br>
+		<div class="po-markup">
+			<div class="media" class="po-link">
+				<a class="pull-left"
+					href="{{ path('showRestaurant',{'id':res.restaurant.id}) }}"
+					target="_parent"> <img alt="image" class="img-Polaroid"
+					src=" {%set a=res.restaurant.images|last  %} {{ asset(a.AssetPath)}} "
+					width="100" height="100"></a>
+
+
+
+				<div class="media-body fnt-smaller">
+
+
+					<h3 class="media-heading">
+						{{ res.nom }} &nbsp&nbsp<i class="icon icon-star icon-warning"
+							style="color: orange;"></i><i class="icon icon-star icon-warning"
+							style="color: orange;"></i><i class="icon icon-star icon-warning"
+							style="color: orange;"></i><i class="icon icon-star icon-warning"
+							style="color: orange;"></i>
+						<h3 class="pull-right">{{ res.prix }} €</h3>
+
+					</h3>
+					<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+						<li>
+								Chez : <a
+									href="{{ path('showRestaurant',{'id':res.restaurant.id}) }}"
+									class="btn btn-infos"><span>{{ res.restaurant.nom }}</span></a>
+							</li>
+						<li>2 <span class="icon icon-time"></span>min
+						</li>
+
+						<li style="list-style: none"></li>
+
+						<li>5 <i class="icon icon-star icon-warning"
+							style="color: orange;"></i></li>
+
+						<li style="list-style: none"></li>
+
+						<li>5 <i class="icon icon-heart icon-warning" style="color: pink;"></i></li>
+					</ul>
+					{% for img in res.medias %} <img class="img-circle"
+						src="{{ asset(img.AssetPath)}}" width="50" height="50"> {% endfor
+					%}
+
+					<p style="color: gray;" class="hidden-xs">{{res.desciption}} ...</p>
+
+
+
+
+
+
+
+				</div>
+			</div>
+		</div>
+		<div class=" ">
+			<ul class="list-inline mrg-0 btm-mrg-10 clr-535353 pull-right">
+
+
+				<li><a class="btn btn-success"
+					href="{{ path('reserver_platdujour',{'platDuJour':res.id}) }} ">Réserver</a></li>
+
+
+
+
+
+			</ul>
+
+		</div>
+		<!-- End Listing-->
+		<hr>
+	</div>
+	<!-- End Col -->
+</div>
+<!-- End row -->
+
+
+
+
+{% endfor %} {% else %} Aucun résultat {% endif %}
+

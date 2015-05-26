@@ -1,0 +1,21 @@
+ {% if is_granted('IS_AUTHENTICATED_FULLY') %} 
+ 	{% if app.user.type =="clients" %}
+ 		 {% include 'JourEtMenuBundle:Client:nav_on_line.html.twig'%}
+  	 {% else %} 
+   			{% include 'JourEtMenuBundle:Restaurant:nav_on_line.html.twig' %}
+
+		{% endif %}
+ {% else %} 
+ {% include "JourEtMenuBundle:Client:nav_out_line.html.twig" %} 
+ {% endif %}
+
+
+
+
+
+
+
+
+
+
+

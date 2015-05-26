@@ -1,0 +1,31 @@
+addImages_restaurateurs:
+    path:     /restaurant/addImages
+    defaults: { _controller: JourEtMenuBundle:Restaurateurs:addImages }
+
+acceuil_restaurateurs:
+    path:     /restaurant
+    defaults: { _controller: JourEtMenuBundle:Restaurateurs:index }
+    
+mesResas_restaurateurs:
+    path:     /restaurant/mes_resas
+    defaults: { _controller: JourEtMenuBundle:Restaurateurs:mesResas }
+
+
+
+confirmerResa:
+    path:     /restaurant/mes_resas/confirmerResa/{id}
+    defaults: { _controller: JourEtMenuBundle:Restaurateurs:confirmerResa }
+    
+refuserResa:
+    path:     /restaurant/mes_resas/refuserResa/{id}
+    defaults: { _controller: JourEtMenuBundle:Restaurateurs:refuserResa }
+
+notShow:
+    path:     /restaurant/mes_resas/notshow/{id}
+    defaults: { _controller: JourEtMenuBundle:Restaurateurs:notShowResa }
+
+
+annulerResa:
+    path:     /restaurant/mes_resas/annulerResa/{id}
+    defaults: { _controller: JourEtMenuBundle:Restaurateurs:annulerResa }
+    

@@ -1,0 +1,51 @@
+jour_et_menu:
+    resource: "@JourEtMenuBundle/Resources/config/routing.yml"
+    prefix:   /
+
+utilisateurs:
+    resource: "@UtilisateursBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ 
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+    
+platsduJour:
+    resource: "@JourEtMenuBundle/Controller/platDuJourController.php"
+    type:     annotation
+    prefix:   /
+    
+ingredients:
+    resource: "@JourEtMenuBundle/Controller/IngredientsController.php"
+    type:     annotation
+    prefix:   /
+    
+menusc:
+    resource: "@JourEtMenuBundle/Controller/MenusController.php"
+    type:     annotation
+    prefix:   /
+    
+specialite:
+    resource: "@JourEtMenuBundle/Controller/SpecialiteController.php"
+    type:     annotation
+    prefix:   /
+status_resa:
+    resource: "@JourEtMenuBundle/Controller/statusReservationController.php"
+    type:     annotation
+    prefix:   /
+acceuil:
+    resource: "@JourEtMenuBundle/Controller/ClientController.php"
+    type:     annotation
+    prefix:   /
+    
+reservation:
+    resource: "@JourEtMenuBundle/Controller/ReservationsController.php"
+    type:     annotation
+    prefix:   /
+   
+rechercheR:
+    resource: "@JourEtMenuBundle/Controller/RechercheController.php"
+    type:     annotation
+    prefix:   /
+ 

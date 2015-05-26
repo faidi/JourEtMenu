@@ -1,0 +1,45 @@
+{% extends '::base2.html.twig' %} {% block body -%}
+<div class=" col-md-8">
+	<h1>Mes réservations</h1>
+	<hr>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+
+				<th>Nom</th>
+				<th>Nombre de Personne</th>
+
+				<th>Date</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for entity in entities %}
+			<tr  >
+
+				<td>{{ entity.client.nom }}</td>
+				<td>{{ entity.nbrPersonne }}</td>
+				<td>{{ entity.date|date("d/m/Y h:m:s")}}
+				
+				<td>{{ entity.status.nom }}</td>
+
+				<td>
+				 
+				
+				 
+						<td><a class="btn btn-success"
+					href="{{ path('confirmerResa',{'id':entity.id}) }}"><span
+						class="icon icon-ok"></span></a> <a class="btn btn-danger"
+					href="{{ path('refuserResa',{'id':entity.id}) }}"><span
+						class="icon icon-remove"></span></a> <a class="btn btn-warning"
+					href="{{ path('notShow',{'id':entity.id}) }}"><span
+						class="fa fa-exclamation-circle "></span></a></td>
+						   
+						</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+</div>
+{% endblock %}

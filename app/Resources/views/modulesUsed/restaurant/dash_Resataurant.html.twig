@@ -1,0 +1,28 @@
+ 
+
+    	 
+       
+         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        	
+            	{% include 'JourEtMenuBundle:Default:Restaurateurs/navbar/nav_on_line.html.twig' %} 
+            	 
+                
+ 
+        	{% else %}
+			 
+            	{% include 'JourEtMenuBundle:Default:Restaurateurs/navbar/nav_out_line.html.twig' %} 
+        				 
+			 
+		{% endif %}
+   		 
+
+
+ 
+
+ 
+
+
+
+ 
+
+     

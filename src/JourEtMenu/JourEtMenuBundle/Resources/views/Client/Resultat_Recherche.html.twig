@@ -1,0 +1,116 @@
+{% extends '::base2.html.twig' %} {% block body -%}
+
+<div class="navbar "
+	style="background-color: #6BB7F1; padding: 5px; word-spacing: 0px; padding-left: 60px;">
+	{# {% render(controller('JourEtMenuBundle:Recherche:recherche')) %} #}
+	<form class="form form-inline">
+		<div class="form-group">
+			<div class="input-group">
+				<input type="text" id="autocomplete" class="form-control "
+					style="height: 40px; width: 500px; border-top-left-radius: 20px; border-bottom-left-radius: 20px;"
+					placeholder="Adresse ,ville ,place arrondissement" />
+
+
+	
+				<button class="input-group-addon"
+					style="background-color: white; height: 40px;">
+
+
+					<span class="icon icon-map-marker"> </span>
+				</button>
+
+
+
+				<input class="input-group-addon" type="date"
+					value={{ "now"|date("m/d/Y") }} class="form-control"
+					style="height: 40px;" /> <select class="input-group "
+					style="height: 36px;">
+					<option>Tous</option>
+					<option>Plats du jour</option>
+					<option>restaurant</option>
+					<option>Menu</option>
+				</select>
+
+
+				<button class="form-control btn btn-success pull-right"
+					type="submit"
+					style="height: 40px; width: 300px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+					<span class="icon icon-search"> </span>Trouver
+				</button>
+			</div>
+		</div>
+		<br> &nbsp &nbsp
+		<div class="form-group offset-1" style="margin-top: 4px">
+
+			<select class="form-control" style="size: 10px;">
+				<option>Catégorie Menus</option>
+				<option>Entrée+plat</option>
+				<option>Plat+dessert</option>
+				<option>Entrée+plat+dessert</option>
+				<option>Complet(apéros..)</option>
+				
+			</select> <label style="color: white;">€ Prix </label> <input
+				type=range min=0 max=100 value=50 class=form-control orient=horizontal				style="color: white;" />
+<label style="color: white;">Distance </label> <input
+				type=range min=0 max=100 value=50 class=form-control orient=horizontal
+				style="color: white;" />
+				
+		</div>
+	</form>
+</div>
+
+<div class="container" id="#aa">
+	<div class="row">
+
+		<div class="span3"></div>
+		{% if resultats|length != 0 %}
+		<div class="span7" style="overflow: scroll;; height: 600px;">
+			<br>
+			<p>500 résultat trouvées</p>
+			<hr>
+			<div class="container-fluid">
+				<div class="container container-pad" id="property-listings">
+				{% include'JourEtMenuBundle:Client:resultatRecherche/tabbable.html.twig'%}
+					</div>
+				
+
+			</div>
+		</div>
+
+
+
+		{% else %} Aucun professionnel avec ces critéres {% endif %}
+
+		<div class="po-content hidden">
+         <div>
+          <div 
+			style="position: absolute; top: auto; right: 2px; text-align: center; height: auto; width: 25%; padding: 2px; background-color: white; border-left-color: gray; font-size: 12px;">
+
+	
+			<h3>Menu Dégustation 15 €</h3>
+			<hr>
+			<h5>Entrées</h5>
+			<hr>
+
+
+			----
+			<hr>
+			<h5>Plats</h5>
+			<hr>
+			----
+			<hr>
+			<h5>Désserts</h5>
+			<hr>
+			-----
+		</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+
+
+
+{% endblock %}

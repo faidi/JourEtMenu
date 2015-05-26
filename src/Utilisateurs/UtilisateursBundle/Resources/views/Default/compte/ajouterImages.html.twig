@@ -1,0 +1,19 @@
+{% extends '::base2.html.twig' %}
+
+{% block body -%}
+<div class="row col-xs-10">
+
+{% for img in app.user.images %}
+<div class="col-xs-4">
+				 <img class="img-polaroid" src="{{ asset(img.AssetPath)}}"
+					width="200" height="200"> <hr>
+  </div> 
+{% endfor %}</div> 
+<form  action="{{path ('addImages_restaurateurs' )}}" method="POST" {{ form_enctype(form) }}>
+
+                {{ form(form) }}
+
+ 
+            </form>  
+    </div>
+    {% endblock %}
