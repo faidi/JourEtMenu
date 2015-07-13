@@ -1,0 +1,75 @@
+
+{% extends 'base2.html.twig' %} 
+
+
+
+{% block body %}
+
+
+
+
+<div class="container">
+<h1>Liste des favoris</h1>
+<hr>
+<div class="span3"></div>
+{% if app.user.restaurantfavoris|length != 0 %}
+<!-- Popover #1 -->
+
+{% for resultat in app.user.restaurantfavoris %}
+
+
+<div class="span6">
+
+	<div class="media">
+		<a class="pull-left"
+		href="{{ path('showRestaurant',{'id':resultat.id}) }}"
+		target="_parent"> <img alt="image" class="img-Polaroid"
+		src=" {%set a=resultat.images|last  %} {{ asset(a.AssetPath)}} "
+		width="100" height="100">
+	</a>
+
+
+	<div class="media-body fnt-smaller">
+
+		<h3 class="media-heading">
+			{{ resultat.nom }}
+			
+
+		</h3>
+
+
+		<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+			<li>2 <span class="icon icon-time"></span>min
+			</li>
+
+			<li style="list-style: none"></li>
+
+			<li>5 <i class="icon icon-star icon-warning" style="color: orange;"></i></li>
+
+			<li style="list-style: none"></li>
+
+			<li>5 <a class="heart" id="{{ resultat.id }}" ><i class="btn  icon icon-heart icon-warning" id="clr" style="color: pink ;"></i><img id="loading" class="img-circle"
+						src="https://github.com/devandclick/Ecommerce/blob/v0.28/web/img/loading.gif?raw=true" width="20" height="20" style="display: none;"></a></li>
+		</ul>
+		
+<a class='btn btn-primary'>Voir </a>
+		
+
+		
+
+	</div>
+
+	
+
+</div>
+
+
+
+
+
+
+</div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

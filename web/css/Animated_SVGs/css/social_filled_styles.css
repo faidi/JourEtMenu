@@ -1,0 +1,209 @@
+/*=============================================
+[ Inactive Styles ]
+==============================================*/
+.social-filled {
+    display: inline-block;
+    width: 134px;
+    height: 138px;
+    margin-right: 54px;
+}
+.social-filled:hover { cursor: pointer }
+/* Gradient Offsets */
+.offset0 {
+    stop-color: #000000;
+    stop-opacity: 0.5;
+}
+.offset1 {
+    stop-color: #000000;
+    stop-opacity: 0.2;
+}
+.offset2 {
+    stop-color: #000000;
+    stop-opacity: 0.173;
+}
+.offset3 {
+    stop-color: #000000;
+    stop-opacity: 0;
+}
+.offset4 {
+    stop-color: #000000;
+    stop-opacity: 0.7;
+}
+.offset5 {
+    stop-color: #000000;
+    stop-opacity: 0.1143;
+}
+.offset6 {
+    stop-color: #000000;
+    stop-opacity: 0.1106;
+}
+.social-filled {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+.social-filled .icon_circle_shadow {
+    fill: none;
+    fill-opacity: 0;
+    opacity: 0;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all 4s ease;
+    transition: all .4s ease;
+}
+.social-filled .icon_shape_shadow {
+    fill: none;
+    fill-opacity: 0;
+}
+.social-filled .icon_circle {
+    stroke: #FFFFFF;
+    stroke-width: 5;
+    stroke-miterlimit: 10;
+    fill: #fff;
+}
+.social-filled .icon_shape { fill: #af7ac4 }
+/*=============================================
+[ Hover Styles ]
+==============================================*/
+.social-filled:hover {
+    overflow: visible;
+    -webkit-transform: scale(1.25,1.25);
+    -moz-transform: scale(1.25,1.25);
+    transform: scale(1.25,1.25);
+}
+/* Gradient IDs */
+.social-filled:hover .icon_circle_shadow {
+    fill: url(#icon_circle_gradient);
+    fill-opacity: 0.7;
+    opacity: 1;
+}
+.social-filled:hover .icon_shape_shadow {
+    fill: url(#icon_shape_gradient);
+    fill-opacity: 0.9;
+    -webkit-transition-delay: .4s;
+    -moz-transition-delay: .4s;
+    transition-delay: .4s;
+}
+/* Icon Styles */
+.social-filled:hover .icon_circle {
+    stroke: #FFFFFF;
+    stroke-width: 5;
+    stroke-miterlimit: 10;
+    fill: none;
+}
+.social-filled:hover path.icon_shape {
+    fill: #fff;
+    -moz-transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+    transform: scale(1,1);
+    /*animation-name*/
+    -webkit-animation-name: burst3;
+    -moz-animation-name: burst3;
+    -ms-animation-name: burst3;
+    -o-animation-name: burst3;
+    animation-name: burst3;
+    /*animation-duration*/
+    -webkit-animation-duration: .4s;
+    -moz-animation-duration: .4s;
+    -ms-animation-duration: .4s;
+    -o-animation-duration: .4s;
+    animation-duration: .4s;
+    /*transform-origin*/
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 40px 38px !important;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+/*=============================================
+[ KeyFrame Animations ]
+==============================================*/
+@-webkit-keyframes burst3 { 
+    100% {
+        -webkit-transform: scale(1,1);
+        animation-timing-function: ease-in;
+    }
+    37% {
+        -webkit-transform: scale(1.5,1.5);
+        animation-timing-function: ease-out;
+    }
+    55% {
+        -webkit-transform: scale(1.37,1.37);
+        animation-timing-function: ease-in;
+    }
+    73% {
+        -webkit-transform: scale(1,1);
+        animation-timing-function: ease-out;
+    }
+    82% {
+        -webkit-transform: scale(1.45,1.45);
+        animation-timing-function: ease-in;
+    }
+    91% {
+        -webkit-transform: scale(1.5,1.5);
+        animation-timing-function: ease-out;
+    }
+    96% {
+        -webkit-transform: scale(1.4,1.4);
+        animation-timing-function: ease-in;
+    }
+}
+@-moz-keyframes burst3 { 
+    100% {
+        -moz-transform: scale(1,1);
+        animation-timing-function: ease-in;
+    }
+    37% {
+        -moz-transform: scale(1.5,1.5);
+        animation-timing-function: ease-out;
+    }
+    55% {
+        -moz-transform: scale(1.37,1.37);
+        animation-timing-function: ease-in;
+    }
+    73% {
+        -moz-transform: scale(1,1);
+        animation-timing-function: ease-out;
+    }
+    82% {
+        -moz-transform: scale(1.45,1.45);
+        animation-timing-function: ease-in;
+    }
+    91% {
+        -moz-transform: scale(1.5,1.5);
+        animation-timing-function: ease-out;
+    }
+    96% {
+        -moz-transform: scale(1.4,1.4);
+        animation-timing-function: ease-in;
+    }
+}
+@keyframes burst3 { 
+    100% {
+        transform: scale(1,1);
+        animation-timing-function: ease-in;
+    }
+    37% {
+        transform: scale(1.5,1.5);
+        animation-timing-function: ease-out;
+    }
+    55% {
+        transform: scale(1.37,1.37);
+        animation-timing-function: ease-in;
+    }
+    73% {
+        transform: scale(1,1);
+        animation-timing-function: ease-out;
+    }
+    82% {
+        transform: scale(1.45,1.45);
+        animation-timing-function: ease-in;
+    }
+    91% {
+        transform: scale(1.5,1.5);
+        animation-timing-function: ease-out;
+    }
+    96% {
+        transform: scale(1.4,1.4);
+        animation-timing-function: ease-in;
+    }
+}
