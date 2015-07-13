@@ -17,7 +17,7 @@ class ReservationsRepository extends EntityRepository
 		$qb = $this->createQueryBuilder('u')
 		->select('u')
 		->where('u.client = :utilisateur')
-		->orderBy('u.id')
+		->orderBy('u.id','DESC')
 		->setParameter('utilisateur', $utilisateur);
 		return $qb->getQuery()->getResult();
 	}
@@ -27,7 +27,7 @@ class ReservationsRepository extends EntityRepository
 		$qb = $this->createQueryBuilder('u')
 		->select('u')
 		->where('u.restaurant = :utilisateur')
-		->orderBy('u.id')
+		->orderBy('u.id','DESC')
 		->setParameter('utilisateur', $utilisateur);
 		return $qb->getQuery()->getResult();
 	}

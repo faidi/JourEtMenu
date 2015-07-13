@@ -12,6 +12,8 @@ class RegistrationRestaurateursFormType extends AbstractType
         // add your custom field
         $builder->add('telephone')
         ->add('nom')
+
+        ->add('adresse','entity',array('class' => 'Utilisateurs\UtilisateursBundle\Entity\Adresses'))
         ->add('specialite', 'entity', array( 'class' => 'JourEtMenu\JourEtMenuBundle\Entity\Specialite', 'property' => 'nom',
 'multiple' => FALSE));
        

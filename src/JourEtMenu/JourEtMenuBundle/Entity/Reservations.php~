@@ -79,7 +79,9 @@ class Reservations
     /**
      * @var integer
      *
-     * @ORM\Column(name="message", type="string")
+     * @ORM\Column(name="message", type="string", nullable=true)
+     * 
+     * 
      */
     private $message;
 
@@ -334,5 +336,28 @@ class Reservations
     public function getPlatDuJour()
     {
         return $this->platDuJour;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     * @return Reservations
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string 
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 }

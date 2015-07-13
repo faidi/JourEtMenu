@@ -4,17 +4,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
- $('#nav').affix({
-            offset: {
-                top: $('header').height()
-            }
-        });
-
-        $('#sidebar').affix({
-            offset: {
-                top: 0;
-            }
-        });
 $(function(){
 $('a[title]').tooltip();
 });

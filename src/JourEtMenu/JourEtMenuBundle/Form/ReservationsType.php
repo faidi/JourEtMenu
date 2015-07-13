@@ -17,7 +17,7 @@ class ReservationsType extends AbstractType
         $builder
             ->add('date','datetime', array('data' => new \DateTime('now')))
             ->add('nbrPersonne')
-            ->add('message')
+            ->add('message', 'text' ,array( 'required' => false))
             
         ;
     }

@@ -1,116 +1,189 @@
-{% extends '::base2.html.twig' %} {% block body -%}
-
-<div class="navbar "
-	style="background-color: #6BB7F1; padding: 5px; word-spacing: 0px; padding-left: 60px;">
-	{# {% render(controller('JourEtMenuBundle:Recherche:recherche')) %} #}
-	<form class="form form-inline">
-		<div class="form-group">
-			<div class="input-group">
-				<input type="text" id="autocomplete" class="form-control "
-					style="height: 40px; width: 500px; border-top-left-radius: 20px; border-bottom-left-radius: 20px;"
-					placeholder="Adresse ,ville ,place arrondissement" />
-
-
-	
-				<button class="input-group-addon"
-					style="background-color: white; height: 40px;">
-
-
-					<span class="icon icon-map-marker"> </span>
-				</button>
+{% extends 'base2.html.twig' %} {% block body %} {# <div class="span12
+navbar "#} {# style="background-color: #6BB7F1; padding: 5px;
+word-spacing: 0px; padding-left: 60px;">#} {# <form class="form
+form-inline">#} {# <div class="form-group">#} {# <div class="input-group
+">#} {# <input type="text" id="autocomplete" class="input-addon
+col-md-9"#} {# style="height: 40px; border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;"#} {# placeholder="Adresse ,ville
+,place arrondissement" >#} {# <button class=" add-on"#} {#
+style="background-color: white; height: 40px;">#} {# <span class="icon
+icon-map-marker"> </span>#} {# </button>#} {# </input>#} {# <input
+class="input-addon form_datetime" type="date"#} {# value={{
+"now"|date("m/d/Y") }} class="form-control"#} {# style="height: 40px;"
+/> #} {# <select class="input-addon "#} {# style="height: 36px;">#} {#
+<option>Tous</option>#} {# <option>Plats du jour</option>#} {#
+<option>restaurant</option>#} {# <option>Menu</option>#} {# </select>#}
 
 
+{# <button class=" add-on btn btn-success col-md-5"#} {# type="submit"#}
+{# style="height: 40px; border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;">#} {# <span class="icon icon-search">
+</span>Trouver#} {# </button>#} {# </div>#} {# </div>#} {# <br> &nbsp
+&nbsp#} {# <div class="form-group offset-1" style="margin-top: 4px">#}
 
-				<input class="input-group-addon" type="date"
-					value={{ "now"|date("m/d/Y") }} class="form-control"
-					style="height: 40px;" /> <select class="input-group "
-					style="height: 36px;">
-					<option>Tous</option>
-					<option>Plats du jour</option>
-					<option>restaurant</option>
-					<option>Menu</option>
-				</select>
+{# <select class="form-control" style="size: 10px;">#} {#
+<option>Catégorie Menus</option>#} {# <option>Entrée+plat</option>#} {#
+<option>Plat+dessert</option>#} {#
+<option>Entrée+plat+dessert</option>#} {#
+<option>Complet(apéros..)</option>#} {# </select> <input type="text"
+placeholder="Ingrédient,végétarien"#} {# style="border-radius: 20px;
+text-align: center;" /> <input#} {# type="text"
+placeholder="Spécialité"#} {# style="border-radius: 20px; text-align:
+center;" /><label#} {# style="color: white;">€ Prix </label> <input
+type=range min=0#} {# max=100 value=50 class=form-control
+orient=horizontal#} {# style="color: white;" /> <label style="color:
+white;">Distance </label>#} {# <input type=range min=0 max=100 value=50
+class=form-control#} {# orient=horizontal style="color: white;" />#} {#
+</div>#} {# </form>#}
+<div class="container">
+
+	<div class="container" style="background-color: #6BB7F1;">
+		<form action="" method="POST">
+			<div
+				style="padding: 20px 20px 20px 20px; background-color: rgba(8, 8, 8, 0.12); border-radius: 5px"
+				class="form-inline" role="form">
+
+				<div class="form-group">
+					<label class="sr-only" for="activites">Activités</label> <input
+						type="text" name="activites" class="form-control"
+						id="activitesInput" placeholder="Un restaurant ,un ingrédient, une spécialité" readon="">
+				</div>
 
 
-				<button class="form-control btn btn-success pull-right"
-					type="submit"
-					style="height: 40px; width: 300px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
-					<span class="icon icon-search"> </span>Trouver
-				</button>
+				<div class="form-group">
+					<label class="sr-only" for="date">date</label> <input type="text"
+						name="date" onclick="fadeoutpop()"
+						class="form-control hasDatepicker" id="datepicker"
+						style="cursor: pointer" placeholder="Selectionnez une date">
+				</div>
+
+				<div style="margin-right: 10px" class="form-group">
+					<label class="sr-only" for="Lieu">Lieu</label> <input type="text"
+						onclick="fadeoutpop()" name="lieu" value="" class="form-control"
+						id="localization"
+						placeholder="Entrez un lieu (adresse, ville ...)"
+						autocomplete="off">
+				</div>
+				<button
+					style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;; float: right; width: 300px;"
+					class="btn btn-success">Rechercher</button>
 			</div>
-		</div>
-		<br> &nbsp &nbsp
-		<div class="form-group offset-1" style="margin-top: 4px">
-
-			<select class="form-control" style="size: 10px;">
-				<option>Catégorie Menus</option>
-				<option>Entrée+plat</option>
-				<option>Plat+dessert</option>
-				<option>Entrée+plat+dessert</option>
-				<option>Complet(apéros..)</option>
-				
-			</select> <label style="color: white;">€ Prix </label> <input
-				type=range min=0 max=100 value=50 class=form-control orient=horizontal				style="color: white;" />
-<label style="color: white;">Distance </label> <input
-				type=range min=0 max=100 value=50 class=form-control orient=horizontal
-				style="color: white;" />
-				
-		</div>
-	</form>
-</div>
-
-<div class="container" id="#aa">
-	<div class="row">
-
-		<div class="span3"></div>
-		{% if resultats|length != 0 %}
-		<div class="span7" style="overflow: scroll;; height: 600px;">
-			<br>
-			<p>500 résultat trouvées</p>
-			<hr>
-			<div class="container-fluid">
-				<div class="container container-pad" id="property-listings">
-				{% include'JourEtMenuBundle:Client:resultatRecherche/tabbable.html.twig'%}
-					</div>
-				
-
-			</div>
-		</div>
-
-
-
-		{% else %} Aucun professionnel avec ces critéres {% endif %}
-
-		<div class="po-content hidden">
-         <div>
-          <div 
-			style="position: absolute; top: auto; right: 2px; text-align: center; height: auto; width: 25%; padding: 2px; background-color: white; border-left-color: gray; font-size: 12px;">
-
-	
-			<h3>Menu Dégustation 15 €</h3>
-			<hr>
-			<h5>Entrées</h5>
-			<hr>
-
-
-			----
-			<hr>
-			<h5>Plats</h5>
-			<hr>
-			----
-			<hr>
-			<h5>Désserts</h5>
-			<hr>
-			-----
-		</div>
-		</div>
+		</form>
 	</div>
 
+<hr>
+	<div class="row">
 
+		<div class="span3 " style="  position: fixed 50px;background-color:white; ">
+			<div><h2 class="small-title-shadow-home">Affiner la recherche</h2>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="form_datetime" >Date :</label> <input type="text"
+						id="date" value="01/08/2015" class="form-control form_datetime"
+{# 						onchange="rechercheAvance()" #}
+style="cursor: pointer"						placeholder="Selectionnez une date">
+				</div>
+			</div>
+			<div class="col-md-12">
+				<p>
+					<label for="amount">Prix</label> <input type="range" min="0" max="100" value="50"
+class="form-control" orient="horizontal" style="color: white;" />
+				</p>
+
+				<div onchange="rechercheAvance()" id="slider-range"
+					class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+					<div class="ui-slider-range ui-widget-header ui-corner-all"
+						style="left: 0%; width: 100%;"></div>
+					<span class="ui-slider-handle ui-state-default ui-corner-all"
+						tabindex="0" style="left: 0%;"></span><span
+						class="ui-slider-handle ui-state-default ui-corner-all"
+						tabindex="0" style="left: 100%;"></span>
+				</div>
+			</div>
+			<br>
+			<div style="margin-top: 8px" class="col-md-12">
+				<div style="padding: 0" class="col-md-10">
+					<div class="form-group">
+						<label class="amount" for="Lieu">Lieu :</label> <input type="text"
+							value="Paris, France" class="form-control" id="autocomplete"
+							placeholder="Entrez un lieu (addresse, ville ...)"
+							autocomplete="off">
+					</div>
+				</div>
+				<div style="padding: 0" class="col-md-2">
+					<br>
+					<div class="center">
+						<button onclick="rechercheAvance()" style="margin-top: 5px;"
+							type="submit" href="#" class="btn btn-warning-dark">Ok</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label for="civil">Les mieux noté :</label> <select
+						onchange="rechercheAvance()" class="form-control" id="civil">
+						<option value="individuel">Les plus proches</option>
+						<option value="collectif">Les plus réservé</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<label for="civil">Reserver pour :</label><br> <input
+					onclick="rechercheAvance()" type="radio" value="man" name="sexe">Sur
+				Place <input onclick="rechercheAvance()" type="radio" value="woman"
+					name="sexe">A emporter <input onclick="rechercheAvance()"
+					type="radio" value="woman" name="sexe">Livraison
+			</div>
+
+			<h5 class="orange-subtitle">Cadre :</h5>
+			<div class="checkbox">
+				<label> <input onclick="rechercheAvance()" name="activites[]"
+					value="Prise de masse" type="checkbox" checked="">Calme
+				</label>
+			</div>
+			<div class="checkbox">
+				<label> <input onclick="rechercheAvance()" name="activites[]"
+					value="Tonification" type="checkbox" checked="">Terasse
+				</label>
+			</div>
+			<div class="checkbox">
+				<label> <input onclick="rechercheAvance()" name="activites[]"
+					value="Steps" type="checkbox">Romantique
+				</label>
+			</div>
+			<div class="checkbox">
+				<label> <input onclick="rechercheAvance()" name="activites[]"
+					value="Fitness" type="checkbox">Anniversaire
+				</label>
+			</div>
+			 </div>
+			</div> 
+			{% if resultats|length != 0 %}
+			
+			
+			
+			
+			<div class="span7"
+				style="border-width: 2px; overflow=y: hidden scroll; height: 590px;">
+				<br>
+				<p>({{ resultats|length }} )résultat trouvées</p>
+
+
+				{%
+				include'JourEtMenuBundle:Client:resultatRecherche/tabbable.html.twig'%}
+
+
+
+
+			</div>
+
+
+<div class="span2">
+<div style="background-color:red; border-width:5px; " >
 
 </div>
 
 
-
-
-{% endblock %}
+</div></div></div>
+			{% else %} Aucun professionnel avec ces critéres {% endif %} {%
+			endblock %}

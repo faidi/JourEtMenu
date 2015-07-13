@@ -1,6 +1,7 @@
 <?php
 
 namespace Utilisateurs\UtilisateursBundle\Entity; 
+use Utilisateurs\UtilisateursBundle\Entity\Adresses;
 
 use Doctrine\ORM\Mapping as ORM;
 use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
@@ -14,7 +15,11 @@ use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 class Clients extends Utilisateurs
 {
 	
-	
+	/**
+	 * @ORM\ManyToMany(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Restaurateurs", inversedBy="clients")
+	 * @ORM\JoinColumn(nullable=false)
+	 */
+	private $restaurantfavoris;
 
 	/**
 	 * @ORM\OneToMany(targetEntity="JourEtMenu\JourEtMenuBundle\Entity\Reservations", mappedBy="client")
@@ -23,7 +28,11 @@ class Clients extends Utilisateurs
 	private $reservations;
 	
 	
-	
+
+	/**
+	 * @ORM\OneToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Adresses", mappedBy="client")
+	 */
+	private $adresse;
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -143,5 +152,63 @@ class Clients extends Utilisateurs
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+   
+
+    /**
+     * Remove restaurantfavoris
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Restaurateurs $restaurantfavoris
+     */
+    public function removeRestaurantfavori(\Utilisateurs\UtilisateursBundle\Entity\Restaurateurs $restaurantfavoris)
+    {
+        $this->restaurantfavoris->removeElement($restaurantfavoris);
+    }
+
+    /**
+     * Get restaurantfavoris
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRestaurantfavoris()
+    {
+        return $this->restaurantfavoris;
+    }
+
+    /**
+     * Add restaurantfavoris
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Restaurateurs $restaurantfavoris
+     * @return Clients
+     */
+    public function addRestaurantfavori(\Utilisateurs\UtilisateursBundle\Entity\Restaurateurs $restaurantfavoris)
+    {
+        $this->restaurantfavoris[] = $restaurantfavoris;
+
+        return $this;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Adresses $adresse
+     * @return Clients
+     */
+    public function setAdresse(\Utilisateurs\UtilisateursBundle\Entity\Adresses $adresse = null)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return \Utilisateurs\UtilisateursBundle\Entity\Adresses 
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
     }
 }

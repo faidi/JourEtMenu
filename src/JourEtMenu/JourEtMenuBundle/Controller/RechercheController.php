@@ -25,39 +25,81 @@ class RechercheController extends Controller {
 	 * @Route("/recherche/resultat", name="recherche")
 	 */
 	public function RechercheResAction() {
+		 
+		
+		 
+		$em = $this->getDoctrine ()->getManager ();
+		
+		 
+		$arr1 = $em->getRepository ( 'JourEtMenuBundle:Menus' )->findAll ();
+		$arr2 = $em->getRepository ( 'JourEtMenuBundle:platDuJour' )->findAll ();
+		 
+		return $this->render ( 'JourEtMenuBundle:Client:Resultat_Recherche.html.twig', array (
+				'resultats' => $arr1,
+				'plats' => $arr2 
+		) );
+	}
+	
+	/**
+	 * Lists all platDuJour entities.
+	 *
+	 * @Route("/recherche/bar", name="rechercheBar")
+	 */
+	public function rechercheAction() {
+		
+		// endroit
+		// date:
+		// /type:tous, Menus , platJour
+		// distance:
+		
+		// promotion: soit choisit
+		// distance:inférieur à
+		// prix:inférieur à
 		$form = $this->createForm ( new RechercheType () );
+		return $this->render ( 'JourEtMenuBundle:Default:recherche/Recherche.html.twig', array (
+				'form' => $form->createView () 
+		) );
+	}
+	
+	/**
+	 * Lists all platDuJour entities.
+	 *
+	 * @Route("/recherche/menu/entrees/{id}", name="findmenu", options={"expose"=true})
+	 */
+	public function findMenuAction(Request $request, $id) {
+		$request = $this->get ( 'request' );
 		
-		//$form->bind ( $this->get ( 'request' ) );
-		$em = $this->getDoctrine()->getManager();
+		if ($request->isXmlHttpRequest ()) {
 		
-		// $motCle=$form['quoi']->getData();
-		
-		$arr1 = $em->getRepository( 'JourEtMenuBundle:Menus' )->findAll();
-		$arr2 = $em->getRepository( 'JourEtMenuBundle:platDuJour' )->findAll();
-		/*
-		 * $arr2= $this->getDoctrine()
-		 * ->getEntityManager()
-		 * ->getRepository('InterventionBundle:Professionnels')
-		 * ->findByMotCleSp($motCle); 
-		 */
-		
-		// $resultats = $arr1 + $arr2;
-		return $this->render( 'JourEtMenuBundle:Client:Resultat_Recherche.html.twig', array('resultats' => $arr1,'plats' => $arr2));
-    
-    } 
+			$menu = $this->getDoctrine ()->getEntityManager ()->getRepository ( 'JourEtMenuBundle:Menus' )->find ($id);
+			$entrees = $menu->getEntrees ();
+			
+			if ($entrees) {
+				
+				$entreeNoms = array ();
+				foreach ( $entrees as $entree ) {
+					$entreeNoms [] = $entree->getNom ();
+				}
+			} else {
+				$entreeNoms = null;
+			}
+			
+			$response = new JsonResponse ();
+			return $response->setData ( array (
+					'entree' => $entreeNoms 
+			) );
+		} else 
 
-    /**
-     * Lists all platDuJour entities.
-     *
-     * @Route("/recherche/bar", name="rechercheBar")
-     *
-     *
-     */
-    public function rechercheAction(){
-        $form = $this->createForm(new RechercheType );
-                    return $this->render('JourEtMenuBundle:Default:recherche/Recherche.html.twig', array('form' => $form->createView()));
-
-    }
-   
+		{
+			throw new \Exception ( 'Erreur' );
+		}
+		
+		$response = new Response ( json_encode ( $entrees ) );
+		
+		$response->headers->set ( 'Content-Type', 'application/json' );
+		return $response;
+	}
 }
+   
+
   

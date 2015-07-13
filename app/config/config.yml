@@ -109,3 +109,5 @@ pugx_multi_user:
         profile:
           form: 
             type: Utilisateurs\UtilisateursBundle\Form\Type\ProfileRestaurateursFormType
+            
+         

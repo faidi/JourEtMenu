@@ -48,4 +48,13 @@ rechercheR:
     resource: "@JourEtMenuBundle/Controller/RechercheController.php"
     type:     annotation
     prefix:   /
- 
+
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+test:
+    resource: "@JourEtMenuBundle/Controller/IpController.php"
+    type:     annotation
+    prefix:   /
+  

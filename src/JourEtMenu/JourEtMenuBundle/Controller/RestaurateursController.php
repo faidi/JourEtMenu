@@ -114,6 +114,7 @@ class RestaurateursController extends Controller
    	 
    	$entity->setStatus($status);
    	$em->persist($entity);
+   	$em->flush();
    	 
    	return $this->render('JourEtMenuBundle:Default:Restaurateurs/resa/actionResas.html.twig'
    			,array('status' => $status));
@@ -131,7 +132,7 @@ class RestaurateursController extends Controller
    	 
    	$entity->setStatus($status);
    	$em->persist($entity);
-   	 
+   	$em->flush();
    	return $this->render('JourEtMenuBundle:Default:Restaurateurs/resa/actionResas.html.twig'
    			,array('status' => $status));
    }

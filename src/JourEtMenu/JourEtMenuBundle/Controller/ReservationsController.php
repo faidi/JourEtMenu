@@ -36,8 +36,8 @@ class ReservationsController extends Controller
 		$form = $this->createForm ( new ReservationsType(), $entity );
 		$request = $this->get ( 'request' );
 		$form->add ( 'submit', 'submit', array (
-				'label' => 'Creer'
-		) );
+				'label' => 'Je Reserve',
+		'attr'=> array('class'=>'btn btn-success')) );
 		
 		if ($request->getMethod () == 'POST') {
 			$form->bind ( $request );

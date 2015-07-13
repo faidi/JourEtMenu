@@ -2,6 +2,8 @@
 
 namespace Utilisateurs\UtilisateursBundle\Entity; 
 
+use Utilisateurs\UtilisateursBundle\Entity\Adresses;
+
 use Doctrine\ORM\Mapping as ORM;
 use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 
@@ -28,6 +30,12 @@ class Restaurateurs extends Utilisateurs
     private $reservations;
     
     /**
+     * @ORM\ManyToMany(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Clients", mappedBy="restaurantfavoris")
+     *
+     */
+    private $clients;
+    
+    /**
      * @ORM\OneToMany(targetEntity="JourEtMenu\JourEtMenuBundle\Entity\Menus", mappedBy="restaurant")
      * 
      */
@@ -52,7 +60,10 @@ class Restaurateurs extends Utilisateurs
      */
     private $specialite;
     
-    
+    /**
+     * @ORM\OneToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Adresses", mappedBy="restaurant")
+     */
+    private $adresse;
     
     /**
      * @var string
@@ -290,5 +301,61 @@ class Restaurateurs extends Utilisateurs
     public function getPlatsDuJour()
     {
         return $this->platsDuJour;
+    }
+
+    /**
+     * Add clients
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Clients $clients
+     * @return Restaurateurs
+     */
+    public function addClient(\Utilisateurs\UtilisateursBundle\Entity\Clients $clients)
+    {
+        $this->clients[] = $clients;
+
+        return $this;
+    }
+
+    /**
+     * Remove clients
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Clients $clients
+     */
+    public function removeClient(\Utilisateurs\UtilisateursBundle\Entity\Clients $clients)
+    {
+        $this->clients->removeElement($clients);
+    }
+
+    /**
+     * Get clients
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClients()
+    {
+        return $this->clients;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param \Utilisateurs\UtilisateursBundle\Entity\Adresses $adresse
+     * @return Restaurateurs
+     */
+    public function setAdresse(\Utilisateurs\UtilisateursBundle\Entity\Adresses $adresse = null)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return \Utilisateurs\UtilisateursBundle\Entity\Adresses 
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
     }
 }

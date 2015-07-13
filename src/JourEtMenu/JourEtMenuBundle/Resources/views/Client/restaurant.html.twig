@@ -2,15 +2,18 @@
 <div id="scroller"
 	style="height: 200px; text-align: center; background-color: #7D7165; margin: 1px;">
 	<div class="innerScrollArea">
-		<ul>
-
+		<ul class="nav navbar-nav">
 			{% for img in entity.images %}
 			<li><img class="img-polaroid" src="{{ asset(img.AssetPath)}}"
 				width="290" height="350"></li> {% endfor %}
 
-		</ul>
+		</ul><br>
 	</div>
 </div>
+
+<br>
+
+
 <div class="col-xs-3 pull-right well"
 	style="text-align: center;   padding: 2px; background-color: white;height: 50 %;border-bottom:11px; ">
 	<!-- style="background-color: black; border-radius: 20px; border-color: #81553B; border-width: 11px; border-style: solid; height: 150px; width: 300px; text-align: center;" -->

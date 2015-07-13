@@ -261,7 +261,7 @@ class FormulesJour
      * @param \JourEtMenu\JourEtMenuBundle\Entity\Digestifs $digestifs
      * @return FormulesJour
      */
-    public function addDigestif(\JourEtMenu\JourEtMenuBundle\Entity\Digestifs $digestifs)
+    public function addDigestif(\JourEtMenu\JourEtMenuBundle\Entity\digestif $digestifs)
     {
         $this->digestifs[] = $digestifs;
 
@@ -273,7 +273,7 @@ class FormulesJour
      *
      * @param \JourEtMenu\JourEtMenuBundle\Entity\Digestifs $digestifs
      */
-    public function removeDigestif(\JourEtMenu\JourEtMenuBundle\Entity\Digestifs $digestifs)
+    public function removeDigestif(\JourEtMenu\JourEtMenuBundle\Entity\digestif $digestifs)
     {
         $this->digestifs->removeElement($digestifs);
     }

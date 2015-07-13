@@ -79,7 +79,9 @@ class Reservations
     /**
      * @var integer
      *
-     * @ORM\Column(name="message", type="string")
+     * @ORM\Column(name="message", type="string", nullable=true)
+     * 
+     * 
      */
     private $message;
 

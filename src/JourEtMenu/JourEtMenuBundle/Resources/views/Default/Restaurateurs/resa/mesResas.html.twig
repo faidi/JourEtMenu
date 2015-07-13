@@ -27,15 +27,25 @@
 				 
 				
 				 
-						<td><a class="btn btn-success"
+						<td>
+						
+					{% if entity.status.id =='3' %}
+						<a class="btn btn-success"
 					href="{{ path('confirmerResa',{'id':entity.id}) }}"><span
-						class="icon icon-ok"></span></a> <a class="btn btn-danger"
+						class="icon icon-ok"></span></a> 
+						
+						
+						<a class="btn btn-danger"
 					href="{{ path('refuserResa',{'id':entity.id}) }}"><span
-						class="icon icon-remove"></span></a> <a class="btn btn-warning"
+						class="icon icon-remove"></span></a> 
+						
+						
+						{% elseif entity.status.id =='1' %}
+						<a class="btn btn-warning"
 					href="{{ path('notShow',{'id':entity.id}) }}"><span
 						class="fa fa-exclamation-circle "></span></a></td>
 						   
-						</td>
+						</td>{% endif %}
 			</tr>
 			{% endfor %}
 		</tbody>

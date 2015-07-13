@@ -3,15 +3,20 @@
 
 
 {% block body %}
-<div class="container offset4" style="text-align: center;">
+<div class="container  " style="text-align: center;">
 <div class="span4" style="text-align: center;">
  
 <h3>Réservation :{{menu.nom  }}</h3>
 chez :{{ menu.restaurant.nom }} 
-
+{% if  menu.getType() is defined   %}
 {% if menu.getType() == "pdj" %}
 <form action="{{path ('reserver_platdujour',{'platDuJour' : menu.id} )}}" method="POST" {{ form_enctype(form) }} >
 {%  else %}
+<form action="{{path ('reserver',{'menu' : menu.id} )}}" method="POST" {{ form_enctype(form) }} >
+
+
+{% endif %}
+{% else %}
 <form action="{{path ('reserver',{'menu' : menu.id} )}}" method="POST" {{ form_enctype(form) }} >
 {% endif %}
   {{ form(form) }}

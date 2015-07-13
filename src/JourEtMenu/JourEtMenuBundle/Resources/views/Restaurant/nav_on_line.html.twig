@@ -1,4 +1,5 @@
-<nav class="navbar  navbar-inverse navbar-static-top" style="margin-bottom: 0px; ">
+<nav class="navbar  navbar-inverse navbar-static-top"
+	style="margin-bottom: 0px;">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="{{ path('acceuil_restaurateurs')  }}">
@@ -20,27 +21,32 @@
 
 		</div>
 	</div>
-</nav><div  " id="scroller"
-		style=" height: 200px; text-align: center; background-color: #7D7165;  margin: 1px;" >
-		<div class="innerScrollArea"  >
-			<ul>
+</nav>
 
-				{% for img in app.user.images %}
-				<li><img class="img-polaroid" src="{{ asset(img.AssetPath)}}"
-					width="290" height="350"></li> {% endfor %}
+<div id="scroller"
+	style="height: 200px; text-align: center; background-color: #7D7165; margin: 1px;">
+	<div class="innerScrollArea">
+		<ul>
 
-			</ul>
-		</div>
+			{% for img in app.user.images %}
+			<li><img class="img-polaroid" src="{{ asset(img.AssetPath)}}"
+				width="290" height="350"></li> {% endfor %}
+
+		</ul>
 	</div>
+</div>
+
+
 <div class="container">
-	
-	<hr>
-	<div class="row" >
-	<div class="col-xs-3 pull-right"
-		style="background-color: black;border-radius:20px; border-color: #81553B; border-width: 11px; border-style: solid; height: 150px; width: 300px; text-align: center;">
-		<h4 style="color: silver; font-style: italic;font-size:x-large; font-family: cursive;">
-			 Ajourd'huit:<br><br> {%set a=app.user.platsDuJour|last %} {{ a.nom
-			}} <br> {{ a.prix }}€
-		</h4>
-	</div>
 
+	<hr>
+	<div class="row">
+		<div class="col-xs-3 pull-right"
+			style="background-color: black; border-radius: 20px; border-color: #81553B; border-width: 11px; border-style: solid; height: 150px; width: 300px; text-align: center;">
+			<h4
+				style="color: silver; font-style: italic; font-size: x-large; font-family: cursive;">
+				Ajourd'huit:<br>
+				<br> {%set a=app.user.platsDuJour|last %} {{ a.nom }} <br> {{ a.prix
+				}}€
+			</h4>
+		</div>

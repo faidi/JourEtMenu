@@ -105,7 +105,12 @@ class platDuJour
 
         return $this;
     }
-
+    
+    
+    public function getType(){
+    
+    	return "pdj";
+    }
     /**
      * Get nom
      *

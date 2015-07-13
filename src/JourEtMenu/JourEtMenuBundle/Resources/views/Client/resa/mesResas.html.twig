@@ -1,5 +1,5 @@
 {% extends '::base2.html.twig' %} {% block body -%}
-<div class=" col-md-8">
+<div class=" container col-md-8">
 	<h1>Mes réservations</h1>
 	{% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="alert alert-success">
@@ -27,14 +27,19 @@
 				<td>{{ entity.date|date("d/m/Y h:m:s")}}
 				
 				<td>{{ entity.status.nom }}</td>
-{% if entity.status.id =='3' %}
+				
+				
+				{% if entity.status.id == "2" %}
+				 
+				
+			{% else %}
 				<td>  <a class="btn btn-danger"
 					href="{{ path('annuler',{'id':entity.id}) }}"><span
 						class="icon icon-remove"></span></a>
 						
 						
-						{% endif %}  </td>
-						
+						  </td>
+						{% endif %}
 			</tr>
 			{% endfor %}
 		</tbody>

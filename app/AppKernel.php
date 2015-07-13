@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new Utilisateurs\UtilisateursBundle\UtilisateursBundle(),
         	new PUGX\MultiUserBundle\PUGXMultiUserBundle(),
             new JourEtMenu\JourEtMenuBundle\JourEtMenuBundle(),
+        		new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+        		new Reactorcoder\Symfony2NodesocketBundle\ReactorcoderSymfony2NodesocketBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
